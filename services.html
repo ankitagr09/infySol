@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infyniti Software Solutions - Services</title>
+    <link rel="shortcut icon" href="/img/microchip-solid.svg" type="image/x-icon">
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body{}
+        /* Your existing styles */
+        .navbar {
+            background-color: #000;
+            /* Black background color for the menu bar */
+            position: sticky;
+            top: 0;
+            border-bottom: 3px solid #0C2C50;
+            /* Bottom border for a subtle 3D effect */
+            z-index: 1000;
+            /* Ensure the navbar is on top */
+        }
+
+        .navbar-brand {
+            color: #5af4e3;
+            /* Neon blue color for the title on the left */
+            font-size: 1.5rem;
+            /* Larger font size for the title */
+        }
+
+        .navbar-brand:hover {
+            color: #fff;
+            /* Neon blue color for the title on hover */
+        }
+
+        .navbar-nav {
+            margin-right: 0;
+            /* Removed margin for the navigation items */
+        }
+
+        .nav-item {
+            transition: transform 0.3s;
+            /* Smooth 3D effect on hover */
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+            /* Lift the item slightly on hover */
+        }
+
+        .nav-link {
+            color: #5af4e3;
+            /* Neon blue color for navigation links */
+            font-weight: bold;
+            /* Bolder font weight for better visibility */
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            /* White color for navigation links on hover */
+        }
+
+        .dropdown-menu {
+            background-color: #000;
+            /* Black background color for dropdown */
+            z-index: 999;
+            /* Ensure the dropdown is on top */
+        }
+
+        .dropdown-item {
+            color: #fff;
+            /* White color for dropdown items */
+        }
+
+
+        .services-section {
+            padding: 100px 0;
+            background-color: #000;
+            /* Black background color for the section */
+            color: #fff;
+            /* Text color for the section */
+        }
+
+        .services-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .services-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .service-card {
+            width: 300px;
+            margin: 15px;
+            padding: 20px;
+            background-color: #111;
+            /* Dark background color for the card */
+            border: 2px solid #5af4e3;
+            /* Neon blue border for the card */
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #5af4e3;
+            /* Neon blue color for service icons */
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .service-description {
+            font-size: 1.2rem;
+        }
+
+        .services-section .service-card {
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .services-section .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+        /* Neon Black Theme */
+        .neon-black-bg {
+            background-color: #111;
+        }
+
+        .neon-black-text {
+            color: #fff;
+        }
+
+        .neon-black-border {
+            border: 2px solid #5af4e3;
+        }
+
+        .neon-black-card {
+            background-color: #222;
+        }
+
+        /* Additional styles for Featured Projects */
+        .featured-projects-section {
+            padding: 100px 0;
+        }
+
+        .project-card {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #5af4e3;
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+
+    <!-- Link to Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Infyniti Software Solutions</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Project 1</a>
+                            <a class="dropdown-item" href="#">Project 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">More Projects</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="services-section py-5 neon-black-bg">
+        <!-- Services Section -->
+        <div class="container">
+            <h2 class="services-heading">Our Services</h2>
+            <ul class="services-list">
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <div class="service-title">Custom Software Development</div>
+                    <div class="service-description">We provide tailored software solutions to address your unique
+                        business needs.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="service-title">Web Development</div>
+                    <div class="service-description">Create stunning and responsive websites to establish your online
+                        presence.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="service-title">Mobile App Development</div>
+                    <div class="service-description">Craft user-friendly mobile applications to engage your audience on
+                        the go.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <div class="service-title">Backend Development</div>
+                    <div class="service-description">Build robust and scalable backend systems to power your
+                        applications.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <div class="service-title">Full Stack Solutions</div>
+                    <div class="service-description">Deliver end-to-end solutions by combining frontend and backend
+                        expertise.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                    <div class="service-title">Cloud Integration</div>
+                    <div class="service-description">Leverage cloud technologies to enhance flexibility and scalability.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="featured-projects-section py-5 neon-black-bg">
+        <div class="container">
+            <h2 class="text-center neon-black-text mb-4">Featured Projects</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="project-card neon-black-card p-4 neon-black-border">
+                        <h4 class="neon-black-text">Project 1</h4>
+                        <!-- <img class="project-image" src="project1.jpg" alt="Project 1"> -->
+                        <p class="neon-black-text">Description of Project 1 goes here.</p>
+                        <a href="#" class="btn btn-primary"
+                            style="background-color: #5af4e3; border-color: #5af4e3;">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card neon-black-card p-4 neon-black-border">
+                        <h4 class="neon-black-text">Project 2</h4>
+                        <!-- <img class="project-image" src="project2.jpg" alt="Project 2"> -->
+                        <p class="neon-black-text">Description of Project 2 goes here.</p>
+                        <a href="#" class="btn btn-primary"
+                            style="background-color: #5af4e3; border-color: #5af4e3;">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card neon-black-card p-4 neon-black-border">
+                        <h4 class="neon-black-text">Project 3</h4>
+                        <!-- <img class="project-image" src="project3.jpg" alt="Project 3"> -->
+                        <p class="neon-black-text">Description of Project 3 goes here.</p>
+                        <a href="#" class="btn btn-primary"
+                            style="background-color: #5af4e3; border-color: #5af4e3;">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section py-4" style="background-color: #111;">
+        <div class="container text-center">
+            <p class="mb-0" style="color: #fff;">&copy; 2023 Infyniti Software Solutions. All rights reserved.</p>
+            <p style="color: #5af4e3;">Designed and Developed by Ankit Agrawal</p>
+        </div>
+    </footer>
+
+    <!-- Link to Bootstrap JS (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript code here
+    </script>
+</body>
+
+</html>

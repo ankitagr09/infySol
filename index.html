@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infyniti Software Solutions</title>
+    <link rel="shortcut icon" href="/img/microchip-solid.svg" type="image/x-icon">
+
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            /* Dark background color */
+            color: #fff;
+            /* Text color */
+        }
+
+        .navbar {
+            background-color: #000;
+            /* Black background color for the menu bar */
+            position: sticky;
+            top: 0;
+            border-bottom: 3px solid #0C2C50;
+            /* Bottom border for a subtle 3D effect */
+            z-index: 1000;
+            /* Ensure the navbar is on top */
+        }
+
+        .navbar-brand {
+            color: #5af4e3;
+            /* Neon blue color for the title on the left */
+            font-size: 1.5rem;
+            /* Larger font size for the title */
+        }
+
+        .navbar-brand:hover {
+            color: #fff;
+            /* Neon blue color for the title on hover */
+        }
+
+        .navbar-nav {
+            margin-right: 0;
+            /* Removed margin for the navigation items */
+        }
+
+        .nav-item {
+            transition: transform 0.3s;
+            /* Smooth 3D effect on hover */
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+            /* Lift the item slightly on hover */
+        }
+
+        .nav-link {
+            color: #5af4e3;
+            /* Neon blue color for navigation links */
+            font-weight: bold;
+            /* Bolder font weight for better visibility */
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            /* White color for navigation links on hover */
+        }
+
+        .dropdown-menu {
+            background-color: #000;
+            /* Black background color for dropdown */
+            z-index: 999;
+            /* Ensure the dropdown is on top */
+        }
+
+        .dropdown-item {
+            color: #fff;
+            /* White color for dropdown items */
+        }
+
+        /* Styling for the image slider */
+        .image-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            z-index: 1;
+            /* Ensure the image slider is behind the navbar and dropdown */
+        }
+
+        .image-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .image-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-slide.active {
+            opacity: 1;
+        }
+
+        .image-slide .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .slide-text {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-section {
+            padding: 100px 0;
+            background-color: #000;
+            /* Dark background color for the section */
+            color: #fff;
+            /* Text color for the section */
+        }
+
+        .about-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-content {
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            display: block;
+            width: 100%;
+            max-width: 630px;
+            height: 360px;
+            margin-top: 20px;
+        }
+
+        .know-more-btn {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Additional styles for text content */
+        .about-content {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .services-section {
+            padding: 100px 0;
+            background-color: #000;
+            /* Black background color for the section */
+            color: #fff;
+            /* Text color for the section */
+        }
+
+        .services-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .services-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .service-card {
+            width: 300px;
+            margin: 15px;
+            padding: 20px;
+            background-color: #111;
+            /* Dark background color for the card */
+            border: 2px solid #5af4e3;
+            /* Neon blue border for the card */
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #5af4e3;
+            /* Neon blue color for service icons */
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .service-description {
+            font-size: 1.2rem;
+        }
+
+        .services-section .service-card {
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .services-section .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+        .contact-image{
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Infyniti Software Solutions</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Project 1</a>
+                            <a class="dropdown-item" href="#">Project 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">More Projects</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image Slider -->
+    <div class="image-slider">
+        <div class="image-slide active">
+            <img src="img/1peakpx.jpg" alt="Slide 1">
+            <div class="slide-content">
+                <!-- <div class="slide-text">Explore Our Services</div> -->
+            </div>
+        </div>
+        <div class="image-slide">
+            <img src="img/2peakpx.jpg" alt="Slide 2">
+            <div class="slide-content">
+                <!-- <div class="slide-text">Innovative Solutions</div> -->
+            </div>
+        </div>
+        <div class="image-slide">
+            <img src="img/peakpx.jpg" alt="Slide 3">
+            <div class="slide-content">
+                <!-- <div class="slide-text">Quality Development</div> -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/1peakpx.jpg" alt="About Us Image" class="about-image">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="about-heading">About Us</h2>
+                    <p class="about-content">We are a team of dedicated software developers and experts in web and
+                        software technologies. With years of experience, we provide innovative solutions to our clients
+                        to help them achieve their goals.</p>
+                    <p class="about-content">Our expertise ranges from full-stack development to cutting-edge
+                        technologies. We are committed to delivering high-quality software solutions that meet the needs
+                        of our clients.</p>
+                    <a href="#" class="btn btn-primary know-more-btn">Know More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section class="services-section py-5">
+        <div class="container">
+            <h2 class="services-heading">Our Services</h2>
+            <ul class="services-list">
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <div class="service-title">Custom Software Development</div>
+                    <div class="service-description">We provide tailored software solutions to address your unique
+                        business needs.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="service-title">Web Development</div>
+                    <div class="service-description">Create stunning and responsive websites to establish your online
+                        presence.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="service-title">Mobile App Development</div>
+                    <div class="service-description">Craft user-friendly mobile applications to engage your audience on
+                        the go.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <div class="service-title">Backend Development</div>
+                    <div class="service-description">Build robust and scalable backend systems to power your
+                        applications.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <div class="service-title">Full Stack Solutions</div>
+                    <div class="service-description">Deliver end-to-end solutions by combining frontend and backend
+                        expertise.</div>
+                </li>
+                <li class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                    <div class="service-title">Cloud Integration</div>
+                    <div class="service-description">Leverage cloud technologies to enhance flexibility and scalability.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Blogs Section -->
+    <!-- Blogs Section -->
+    <section class="blogs-section py-5" style="background-color: #111;">
+        <div class="container">
+            <h2 class="section-heading" style="color: #5af4e3; text-align: center;">Latest Blogs</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="blog-card" style=" padding: 15px;">
+                        <img src="img/blog/blog1.jpg" alt="Blog 1"
+                            style="width: 100%; height: auto; border-radius: 10px;">
+                        <h3 class="blog-title" style="color: #fff; margin-top: 10px;">Blog Title 1</h3>
+                        <p class="blog-excerpt" style="color: #fff;">Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Nullam ut enim nec nulla vestibulum...</p>
+                        <a href="#" class="btn btn-primary"
+                            style="background-color: #5af4e3; border-color: #5af4e3;">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-card" style=" padding: 15px;">
+                        <img src="img/blog/blog2.jpg" alt="Blog 2"
+                            style="width: 100%; height: auto; border-radius: 10px;">
+                        <h3 class="blog-title" style="color: #fff; margin-top: 10px;">Blog Title 2</h3>
+                        <p class="blog-excerpt" style="color: #fff;">Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium...</p>
+                        <a href="#" class="btn btn-primary"
+                            style="background-color: #5af4e3; border-color: #5af4e3;">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-card" style=" padding: 15px;">
+                        <img src="img/blog/blog3.jpg" alt="Blog 3"
+                            style="width: 100%; height: auto; border-radius: 10px;">
+                        <h3 class="blog-title" style="color: #fff; margin-top: 10px;">Blog Title 3</h3>
+                        <p class="blog-excerpt" style="color: #fff;">At vero eos et accusamus et iusto odio dignissimos
+                            ducimus qui blanditiis praesentium voluptatum...</p>
+                        <a href="#" class="btn btn-primary"
+                            style="background-color: #5af4e3; border-color: #5af4e3;">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5" style="background-color: #111;">
+        <div class="container">
+            <h2 class="section-heading" style="color: #5af4e3; text-align: center;">Client Testimonials</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card"
+                        style="border: 2px solid #5af4e3; border-radius: 10px; padding: 15px; text-align: center;">
+                        <div class="testimonial-icon" style="font-size: 3rem; color: #5af4e3;"><i
+                                class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text" style="color: #fff;">"Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Quisque nec massa sed justo feugiat ultricies ac vel felis."</p>
+                        <h5 class="testimonial-author" style="color: #fff; margin-top: 10px;">John Doe</h5>
+                        <p class="testimonial-role" style="color: #5af4e3;">CEO, Company Name</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card"
+                        style="border: 2px solid #5af4e3; border-radius: 10px; padding: 15px; text-align: center;">
+                        <div class="testimonial-icon" style="font-size: 3rem; color: #5af4e3;"><i
+                                class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text" style="color: #fff;">"Sed ut perspiciatis unde omnis iste natus
+                            error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."</p>
+                        <h5 class="testimonial-author" style="color: #fff; margin-top: 10px;">Jane Smith</h5>
+                        <p class="testimonial-role" style="color: #5af4e3;">CFO, Company Name</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card"
+                        style="border: 2px solid #5af4e3; border-radius: 10px; padding: 15px; text-align: center;">
+                        <div class="testimonial-icon" style="font-size: 3rem; color: #5af4e3;"><i
+                                class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text" style="color: #fff;">"At vero eos et accusamus et iusto odio
+                            dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos
+                            dolores et quas molestias excepturi sint occaecati cupiditate non provident."</p>
+                        <h5 class="testimonial-author" style="color: #fff; margin-top: 10px;">David Johnson</h5>
+                        <p class="testimonial-role" style="color: #5af4e3;">CTO, Company Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+<section class="contact-section py-5" style="background-color: #111;">
+    <div class="container" style="border: 2px solid #5af4e3; border-radius: 10px; padding: 15px;">
+        <h2 class="section-heading" style="color: #5af4e3; text-align: center;">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="img/1peakpx.jpg" alt="Contact Image" class="contact-image img-fluid" style="border-radius: 10px;">
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" style="background-color: #111; color: #fff; border: 2px solid #5af4e3;">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Contact Number" style="background-color: #111; color: #fff; border: 2px solid #5af4e3;">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email" style="background-color: #111; color: #fff; border: 2px solid #5af4e3;">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Project" style="background-color: #111; color: #fff; border: 2px solid #5af4e3;">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Description" style="background-color: #111; color: #fff; border: 2px solid #5af4e3;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="background-color: #5af4e3; border: none;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer-section py-4" style="background-color: #111;">
+    <div class="container text-center">
+        <p class="mb-0" style="color: #fff;">&copy; 2023 Infyniti Software Solutions. All rights reserved.</p>
+        <p style="color: #5af4e3;">Designed and Developed by Ankit Agrawal</p>
+    </div>
+</footer>
+
+    <!-- Link to Font Awesome icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to Bootstrap JS (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for auto-sliding the image slider
+        $(document).ready(function () {
+            var currentIndex = 0;
+            var slides = $('.image-slide');
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                slides.eq(index).addClass('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+
+            setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+        });
+    </script>
+</body>
+
+</html>
