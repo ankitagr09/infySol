@@ -26,13 +26,13 @@ To get a copy of this project up and running on your local machine, follow these
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/dark-neon-website.git
+   git clone https://github.com/ankitagr09/infySol.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd dark-neon-website
+   cd infySol
    ```
 
 3. Open the website in your favorite code editor and start customizing it to your needs.
